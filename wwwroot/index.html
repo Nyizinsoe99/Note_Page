@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyNotes Pro</title>
+    <link rel="icon" type="image/png" href="img/webLogo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+</head>
+<body class="bg-slate-50 dark:bg-slate-950 min-h-screen transition-colors duration-300">
+
+    <nav class="bg-white dark:bg-slate-900 shadow-sm p-4 mb-8 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold text-slate-800 dark:text-white">📓 MyNotes</h1>
+            <button onclick="toggleDarkMode()" id="themeBtn" 
+                    class="px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-yellow-400 font-medium transition-all">
+                <span id="themeIcon">🌙 Dark Mode</span>
+            </button>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4">
+        <section class="max-w-xl mx-auto bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 mb-10">
+            <div class="flex flex-col gap-3">
+                <input type="text" id="title" placeholder="Title" 
+                       class="w-full p-3 bg-slate-50 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:ring-2 focus:ring-blue-500">
+                
+                <textarea id="content" placeholder="Content..." 
+                          class="w-full p-3 bg-slate-50 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 rounded-xl h-24 outline-none focus:ring-2 focus:ring-blue-500"></textarea>
+                
+                <div class="flex flex-col gap-2 p-2 bg-slate-50 dark:bg-slate-800 rounded-xl border border-dashed border-slate-300 dark:border-slate-700">
+                    <img id="imagePreview" class="hidden w-full h-32 object-cover rounded-lg mb-2 shadow-sm" src="">
+                    <input type="file" id="photoInput" accept="image/*" 
+                           class="text-xs text-slate-500 dark:text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:bg-blue-50 dark:file:bg-slate-700 dark:file:text-white cursor-pointer">
+                </div>
+
+                <button onclick="saveNote()" class="bg-blue-600 text-white font-bold py-3 rounded-xl hover:bg-blue-700 active:scale-95 transition-all">
+                    Save Note
+                </button>
+            </div>
+        </section>
+
+        <div id="notesList" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 pb-12"></div>
+    </main>
+
+    <div id="noteModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border dark:border-slate-800 flex flex-col">
+            <img id="modalImage" class="w-full max-h-64 object-cover hidden" src="">
+            <div class="p-6">
+                <h2 id="modalTitle" class="text-2xl font-bold text-slate-800 dark:text-white mb-2 break-words"></h2>
+                <p id="modalContent" class="text-slate-600 dark:text-slate-400 whitespace-pre-wrap break-words overflow-y-auto max-h-[50vh]"></p>
+            </div>
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-4 flex flex-col sm:flex-row-reverse gap-2">
+                <button id="deleteBtn" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">Delete</button>
+                <button onclick="closeModal()" class="text-slate-600 dark:text-slate-300 px-6 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
