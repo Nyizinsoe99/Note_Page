@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Node_Page")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73df5b50677d8b72d344a2a21fef37bcd353173c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bcb86ee457c798657ddd1aaba85fbb25f5539a73")]
 [assembly: System.Reflection.AssemblyProductAttribute("Node_Page")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Node_Page")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -43,20 +43,24 @@
             </div>
         </section>
 
-        <div id="notesList" class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 pb-12"></div>
+        <div id="notesList" class="flex flex-col md:flex-row gap-4 pb-12 items-start justify-center">
+            <div id="col-0" class="flex-1 flex flex-col gap-4 max-w-[360px] w-full"></div>
+            <div id="col-1" class="flex-1 flex flex-col gap-4 max-w-[360px] w-full"></div>
+            <div id="col-2" class="flex-1 flex flex-col gap-4 max-w-[360px] w-full"></div>
+        </div>
     </main>
 
     <div id="noteModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4">
-        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal()"></div>
-        <div class="relative bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border dark:border-slate-800 flex flex-col">
+        <div class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm" onclick="closeModal()"></div>
+        <div class="relative bg-white dark:bg-slate-900 w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col z-10">
             <img id="modalImage" class="w-full max-h-64 object-cover hidden" src="">
             <div class="p-6">
                 <h2 id="modalTitle" class="text-2xl font-bold text-slate-800 dark:text-white mb-2 break-words"></h2>
-                <p id="modalContent" class="text-slate-600 dark:text-slate-400 whitespace-pre-wrap break-words overflow-y-auto max-h-[50vh]"></p>
+                <p id="modalContent" class="text-slate-600 dark:text-slate-400 whitespace-pre-wrap break-words overflow-y-auto max-h-[40vh] pr-1"></p>
             </div>
             <div class="bg-slate-50 dark:bg-slate-800/50 p-4 flex flex-col sm:flex-row-reverse gap-2">
-                <button id="deleteBtn" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600">Delete</button>
-                <button onclick="closeModal()" class="text-slate-600 dark:text-slate-300 px-6 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700">Close</button>
+                <button id="deleteBtn" class="bg-red-500 text-white px-6 py-2 rounded-lg hover:bg-red-600 font-medium">Delete</button>
+                <button onclick="closeModal()" class="text-slate-600 dark:text-slate-300 px-6 py-2 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 font-medium">Close</button>
             </div>
         </div>
     </div>
